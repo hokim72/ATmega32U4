@@ -1,0 +1,6 @@
+[ 7972.301730] usb 3-1: new full-speed USB device number 6 using xhci_hcd
+[ 7972.467711] usb 3-1: New USB device found, idVendor=03eb, idProduct=206c
+[ 7972.467721] usb 3-1: New USB device strings: Mfr=1, Product=2, SerialNumber=220
+[ 7972.467727] usb 3-1: Product: LUFA Bulk Vendor Demo
+[ 7972.467732] usb 3-1: Manufacturer: Dean Camera
+[ 7972.467736] usb 3-1: SerialNumber: 75431343134351306021

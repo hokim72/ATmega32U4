@@ -1,0 +1,9 @@
+[  644.684154] usb 3-2: new full-speed USB device number 3 using xhci_hcd
+[  644.857992] usb 3-2: New USB device found, idVendor=03eb, idProduct=2044
+[  644.857996] usb 3-2: New USB device strings: Mfr=1, Product=2, SerialNumber=220
+[  644.857998] usb 3-2: Product: LUFA CDC Demo
+[  644.857999] usb 3-2: Manufacturer: Dean Camera
+[  644.858000] usb 3-2: SerialNumber: 75431343134351306021
+[  644.858498] usb 3-2: ep 0x82 - rounding interval to 1024 microframes, ep desc says 2040 microframes
+[  644.859226] cdc_acm 3-2:1.0: ttyACM0: USB ACM device
+
