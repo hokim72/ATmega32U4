@@ -14,7 +14,6 @@
 #endif
 
 #define CYCLES_PER_US	((F_CPU+500000)/1000000)	// cpu cycles per microsecond
-#define UART_TX_BUFFER_SIZE 0x0200
 #define MY_DEBUG
 
 #endif

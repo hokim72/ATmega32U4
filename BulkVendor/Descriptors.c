@@ -4,9 +4,7 @@
 
 #include "Descriptors.h"
 #include "global.h"
-#ifdef MY_DEBUG
 #include "rprintf.h"
-#endif
 
 // Device descriptor structure. This descriptor, located in FLASH memory,
 // describes the overall device characteristics, including the supported USB
@@ -121,7 +119,7 @@ uint16_t CALLBACK_USB_GetDescriptor(const uint16_t wValue,
 									const void** const DescriptorAddress)
 {
 	#ifdef MY_DEBUG
-	rprintf("USB getdescriptor : 0x%x\n", wValue);
+	rprintf("USB getdescriptor...0x%x, 0x%x\n", wValue, wIndex);
 	#endif
 	const uint8_t DescriptorType = (wValue >> 8);
 	const uint8_t DescriptorNumber = (wValue & 0xFF);

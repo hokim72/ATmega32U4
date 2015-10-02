@@ -47,9 +47,8 @@ int main(void)
 	#ifdef MY_DEBUG
 	uartInit();
 	uartSetBaudRate(9600);
-	rprintfInit((void (*)(unsigned char))uartAddToTxBuffer);
+	rprintfInit(uartSendByte);
 	rprintf("test start....\n");
-	uartSendTxBuffer();
 	#endif
 
 	SetupHardware();
@@ -69,9 +68,6 @@ int main(void)
 
 		CDC_Device_USBTask(&VirtualSerial_CDC_Interface);
 		USB_USBTask();
-		#ifdef MY_DEBUG
-		uartSendTxBuffer();
-		#endif
 	}
 }
 

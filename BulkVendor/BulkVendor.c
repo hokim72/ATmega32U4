@@ -25,22 +25,20 @@ int main(void)
 	#ifdef MY_DEBUG
 	uartInit();
 	uartSetBaudRate(9600);
-	rprintfInit((void (*)(unsigned char))uartAddToTxBuffer);
+	rprintfInit(uartSendByte);
 	rprintf("test start....\n");
-	uartSendTxBuffer();
 	#endif
 
 	SetupHardware();
-
-	#ifdef MY_DEBUG
-	uartSendTxBuffer();
-	#endif
 
 	Device_CreateStream(&BulkVendor_EPs, &USBBulkStream);
 
 	LEDs_SetAllLEDs(LEDMASK_USB_NOTREADY);
 	GlobalInterruptEnable();
 
+	#ifdef MY_DEBUG
+	rprintf("loop start...\n");
+	#endif
 	for (;;)
 	{
 		USB_USBTask();
@@ -75,9 +73,6 @@ int main(void)
 			Endpoint_ClearIN();
 		}
 
-		#ifdef MY_DEBUG
-		uartSendTxBuffer();
-		#endif
 	}
 }
 
@@ -107,7 +102,7 @@ void SetupHardware(void)
 void EVENT_USB_Device_Connect(void)
 {
 	#ifdef MY_DEBUG
-	rprintf("USB Connect...\n");
+	rprintf("USB connect...\n");
 	#endif
 	// Indicate USB enumerating
 	LEDs_SetAllLEDs(LEDMASK_USB_ENUMERATING);
@@ -118,7 +113,7 @@ void EVENT_USB_Device_Connect(void)
 void EVENT_USB_Device_Disconnect(void)
 {
 	#ifdef MY_DEBUG
-	rprintf("USB Disconnect...\n");
+	rprintf("USB disconnect...\n");
 	#endif
 	// Indicate USB not ready
 	LEDs_SetAllLEDs(LEDMASK_USB_NOTREADY);
@@ -148,7 +143,8 @@ void EVENT_USB_Device_ConfigurationChanged(void)
 void EVENT_USB_Device_ControlRequest(void)
 {
 	#ifdef MY_DEBUG
-	rprintf("USB control request...\n");
+	rprintf("USB control request...0x%x, 0x%x\n", USB_ControlRequest.bRequest,
+	USB_ControlRequest.bmRequestType);
 	#endif
 	// Process vendor specific control requests here
 }

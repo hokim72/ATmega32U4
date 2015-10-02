@@ -1,0 +1,8 @@
+[25824.043249] usb 3-2: new full-speed USB device number 56 using xhci_hcd
+[25824.779017] usb 3-2: New USB device found, idVendor=03eb, idProduct=204f
+[25824.779027] usb 3-2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[25824.779032] usb 3-2: Product: LUFA Generic HID Demo
+[25824.779036] usb 3-2: Manufacturer: Dean Camera
+[25824.779421] usb 3-2: ep 0x81 - rounding interval to 32 microframes, ep desc says 40 microframes
+[25825.118369] hid-generic 0003:03EB:204F.0016: hiddev0,hidraw2: USB HID v1.11 Device [Dean Camera LUFA Generic HID Demo] on usb-0000:00:14.0-2/input0
+
